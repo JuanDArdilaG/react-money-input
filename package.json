@@ -1,0 +1,43 @@
+{
+  "name": "react-input-price",
+  "version": "0.0.1-alpha.2",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "dependencies": {
+    "@juandardilag/value-objects": "^1.3.1-alpha.11"
+  },
+  "devDependencies": {
+    "cra-template-typescript": "1.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepublish": "npm run test && npx rimraf dist/ && tsc",
+    "pub": "npm i && git add -A && git commit --amend --no-edit && npm publish --access public && git push"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
