@@ -9,10 +9,13 @@ export const ReactMoneyText = ({
   className?: string;
   CustomComponent?: any;
 }) => {
+  if (!CustomComponent) {
+    return <span className={className}>{value.toString()}</span>;
+  }
   return (
     <CustomComponent
       className={className}
-      children={<p>{value.toString()}</p>}
+      children={<span>{value.toString()}</span>}
     />
   );
 };
