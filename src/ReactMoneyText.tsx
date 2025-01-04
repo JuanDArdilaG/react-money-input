@@ -5,17 +5,23 @@ export const ReactMoneyText = ({
   className,
   CustomComponent,
 }: {
-  value: PriceValueObject;
+  value: PriceValueObject | string | number;
   className?: string;
   CustomComponent?: any;
 }) => {
+  const priceVO =
+    value instanceof PriceValueObject
+      ? value
+      : typeof value === "string"
+      ? PriceValueObject.fromString(value)
+      : new PriceValueObject(value);
   if (!CustomComponent) {
-    return <span className={className}>{value.toString()}</span>;
+    return <span className={className}>{priceVO.toString()}</span>;
   }
   return (
     <CustomComponent
       className={className}
-      children={<span>{value.toString()}</span>}
+      children={<span>{priceVO.toString()}</span>}
     />
   );
 };
