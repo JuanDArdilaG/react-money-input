@@ -1,4 +1,5 @@
 import { PriceValueObject } from "@juandardilag/value-objects/PriceValueObject";
+import { JSX } from "react";
 
 export const ReactMoneyText = ({
   value,
@@ -8,17 +9,17 @@ export const ReactMoneyText = ({
   value: PriceValueObject | string | number;
   className?: string;
   CustomComponent?: any;
-}) => {
+}): JSX.Element => {
   const priceVO =
-    value instanceof PriceValueObject
-      ? value
-      : typeof value === "string"
+    typeof value === "string"
       ? PriceValueObject.fromString(value)
-      : new PriceValueObject(value);
-  if (!CustomComponent) {
-    return <span className={className}>{priceVO.toString()}</span>;
-  }
-  return (
+      : typeof value === "number"
+      ? new PriceValueObject(value)
+      : value;
+
+  return !CustomComponent ? (
+    <span className={className}>{priceVO.toString()}</span>
+  ) : (
     <CustomComponent
       className={className}
       children={<span>{priceVO.toString()}</span>}

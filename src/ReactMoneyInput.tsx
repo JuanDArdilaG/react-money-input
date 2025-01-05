@@ -1,5 +1,5 @@
 import { PriceValueObject } from "@juandardilag/value-objects/PriceValueObject";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 
 export const ReactMoneyInput = ({
   id,
@@ -9,7 +9,7 @@ export const ReactMoneyInput = ({
   id: string;
   value: number;
   onValueChange: (value: PriceValueObject) => void;
-}) => {
+}): JSX.Element => {
   const [priceVO, setPriceVO] = useState(new PriceValueObject(value));
 
   useEffect(() => {
