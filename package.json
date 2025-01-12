@@ -1,6 +1,6 @@
 {
   "name": "react-input-price",
-  "version": "0.0.1-alpha.8",
+  "version": "0.0.2-alpha.0",
   "files": [
     "dist"
   ],
@@ -24,8 +24,9 @@
     "start": "react-scripts start",
     "test": "echo \"Error: no test specified\"",
     "eject": "react-scripts eject",
-    "prepublish": "npm run test && npx rimraf dist/ && tsc",
-    "pub": "npm i && git add -A && git commit --amend --no-edit && npm publish --access public && git push"
+    "prepublish": "npx rimraf dist/ && tsc",
+    "pub": "npm i && git add -A && git commit --amend --no-edit && npm publish --access public && git push",
+    "pub-alpha": "npm i && git add -A && git commit --amend --no-edit && npm publish --access public --tag alpha && git push"
   },
   "eslintConfig": {
     "extends": [

@@ -10,9 +10,11 @@ export const ReactMoneyInput = ({
   initialValue: number;
   onValueChange: (value: PriceValueObject) => void;
 }): JSX.Element => {
-  const [priceStr, setPriceStr] = useState(
-    new PriceValueObject(initialValue).toString()
-  );
+  const [priceStr, setPriceStr] = useState(PriceValueObject.zero().toString());
+
+  useEffect(() => {
+    setPriceStr(new PriceValueObject(initialValue).toString());
+  }, [initialValue]);
 
   useEffect(() => {
     const input = document.getElementById(id);
