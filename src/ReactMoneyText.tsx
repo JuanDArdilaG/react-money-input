@@ -1,5 +1,5 @@
 import { PriceValueObject } from "@juandardilag/value-objects/PriceValueObject";
-import { JSX } from "react";
+import React, { JSX } from "react";
 
 export const ReactMoneyText = ({
   value,
