@@ -5,10 +5,12 @@ export const ReactMoneyInput = ({
   id,
   initialValue,
   onValueChange,
+  CustomInput,
 }: {
   id: string;
   initialValue: number;
   onValueChange: (value: PriceValueObject) => void;
+  CustomInput?: any;
 }): JSX.Element => {
   const [priceStr, setPriceStr] = useState(PriceValueObject.zero().toString());
 
@@ -31,12 +33,21 @@ export const ReactMoneyInput = ({
     );
   }, [id, onValueChange]);
 
-  return (
+  return !CustomInput ? (
     <input
       id={id}
       type="text"
       value={priceStr}
       onChange={(e) => setPriceStr(e.target.value)}
+    />
+  ) : (
+    <CustomInput
+      id={id}
+      type="text"
+      value={priceStr}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setPriceStr(e.target.value)
+      }
     />
   );
 };
