@@ -6,11 +6,13 @@ export const ReactMoneyInput = ({
   initialValue,
   onValueChange,
   CustomInput,
+  CustomInputProps,
 }: {
   id: string;
   initialValue: number;
   onValueChange: (value: PriceValueObject) => void;
   CustomInput?: any;
+  CustomInputProps?: Record<string, any>;
 }): JSX.Element => {
   const [priceStr, setPriceStr] = useState(PriceValueObject.zero().toString());
 
@@ -48,6 +50,7 @@ export const ReactMoneyInput = ({
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         setPriceStr(e.target.value)
       }
+      {...CustomInputProps}
     />
   );
 };
